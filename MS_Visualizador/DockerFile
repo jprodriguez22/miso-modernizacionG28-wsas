@@ -1,0 +1,31 @@
+FROM python:3.10.11
+
+RUN apt-get update \
+    && apt-get install unixodbc -y \
+    && apt-get install unixodbc-dev -y \
+    && apt-get install freetds-dev -y \
+    && apt-get install freetds-bin -y \
+    && apt-get install tdsodbc -y \
+    && apt-get install --reinstall build-essential -y
+
+RUN echo "[FreeTDS]\n\
+    Description = FreeTDS Driver\n\
+    Driver = /usr/lib/x86_64-linux-gnu/odbc/libtdsodbc.so\n\
+    Setup = /usr/lib/x86_64-linux-gnu/odbc/libtdsS.so\n\
+    UsageCount=1" >> /etc/odbcinst.ini
+
+RUN pip install --upgrade pip
+
+RUN pip install setuptools==56
+
+WORKDIR /api
+
+COPY requirements.txt requirements.txt
+RUN pip install -r requirements.txt
+RUN pip install setuptools --upgrade
+
+COPY . .
+
+EXPOSE 5001
+
+CMD ["python", "app.py", "dev"]

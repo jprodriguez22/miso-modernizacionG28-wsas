@@ -1,0 +1,19 @@
+{
+    "01CORTE": "1-Corte",
+    "02CNC": "2-Mecanizado",
+    "03SERIG": "3-Serigrafía",
+    "04SER_VT": "4-Vitrificado",
+    "05EMPAL": "5-Empalme",
+    "06CURVAD": "6-Curvado",
+    "07RECORT": "7-Recorte",
+    "08PULIDO": "8-Pulido",
+    "08S_RUCO": "8-Ruco",
+    "09IOX": "9-Templado químico",
+    "11ZUND": "11-Zund",
+    "12P_ENSA": "12-Preensamble",
+    "14ENSAM": "14-Ensamble",
+    "15EMBOL": "15-Embolsado",
+    "16ACV": "16-Autoclave",
+    "17ENCAP": "17-Encapsulado",
+    "18INSFIN": "18-Calidad"
+}
